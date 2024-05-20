@@ -6,7 +6,29 @@ def getDBConnection():
     return conn
 
 def create_tables():
-    conn = getDBConnection
+    conn = getDBConnection()
     cursor = conn.cursor()
+
+    cursor.execute('''
+    CREATE TABLE IF NOT EXISTS income (
+                   id INTEGER PRIMARY KEY,
+                   amount REAL, 
+                   source TEXT, 
+                   date TEXT
+    )
+                   ''')
     
+    cursor.execute('''
+    CREATE TABLE IF NOT EXISTS expense (
+                   id INTEGER PRIMARY KEY,
+                   amount REAL, 
+                   source TEXT,
+                   date TEXT)
+                   ''')
+    
+    
+    conn.commit()
+    conn.close()
+
+create_tables()
 
