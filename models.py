@@ -1,4 +1,5 @@
 from database import getDBConnection
+from enum import Enum, auto
 
 class Income:
     def __init__(self, amount, source, date):
@@ -53,5 +54,13 @@ def get_all_expenses():
     expenses = cursor.fetchall()
     conn.close()
     return expenses
+    
 
+class categories(Enum):
+    GROCERIES = auto()
+    TRANSPORTATION = auto()
+    ENTERTAINMENT = auto()
+    EATING_OUT = auto()
+    RENT = auto()
+    OTHER = auto()
 

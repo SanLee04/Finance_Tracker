@@ -12,6 +12,7 @@ def create_tables():
     cursor.execute('''
     CREATE TABLE IF NOT EXISTS income (
                    id INTEGER PRIMARY KEY,
+                   category TEXT,
                    amount REAL, 
                    source TEXT, 
                    date TEXT
@@ -21,6 +22,7 @@ def create_tables():
     cursor.execute('''
     CREATE TABLE IF NOT EXISTS expense (
                    id INTEGER PRIMARY KEY,
+                   category TEXT,
                    amount REAL, 
                    source TEXT,
                    date TEXT)
